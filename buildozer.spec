@@ -1,70 +1,58 @@
-# buildozer.spec
-
 [app]
 
-# (str) Title of your application
+# (str) Title of your app
 title = Xiaomei Convert
 
 # (str) Package name
-package.name = xiaomei_convert
+package.name = Xiaomei_Convert
 
-# (str) Package domain (gunakan domain unik Anda)
-package.domain = org.xiaomei
+# (str) Package domain (needed for android/ios packaging)
+package.domain = org.Xiaomei_Convert
 
-# (str) Source code where the main.py live
-source.dir = .
+# (list) Source files to include (let empty to include all the files)
+source.include_exts = py,png,jpg,kv,atlas
 
-# (list) Source files to include (let empty to include all)
-source.include_exts = py,png,jpg,kv,mp3
+# (list) Source files to exclude (let empty to not exclude anything)
+source.exclude_exts = spec
 
-# (list) Application versioning
-version = 1.0
+# (list) List of directory to exclude (let empty to not exclude anything)
+source.exclude_dirs = tests, bin
 
-# (list) Application requirements
-requirements = python3,kivy,pygame,vobject
-
-# (str) Presplash of the application
-#presplash.filename = %(source.dir)s/data/presplash.png
+# (list) List of exclusions using pattern matching
+source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Icon of the application
-#icon.filename = %(source.dir)s/data/icon.png
+icon.filename = %(source.dir)s/data/icon.png
 
-# (list) Supported orientations
-orientation = portrait
+# (str) Supported android version
+android.api = 30
 
-# (bool) Fullscreen
-fullscreen = 0
-
-# Android specific
-# (int) Target Android API, gunakan yang terbaru
-android.api = 33
-
-# (int) Minimum API your APK will support.
+# (int) Android min API to use
 android.minapi = 21
 
 # (int) Android SDK version to use
-android.sdk = 33
+android.sdk = 30
 
 # (str) Android NDK version to use
-android.ndk = 25b
+android.ndk = 21
+
+# (str) Release mode (let empty to release version number)
+android.release = debug
 
 # (list) Permissions
-android.permissions = INTERNET,READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE
+android.permissions = INTERNET
 
-# (bool) Presplash fullscreen
-#android.presplash_fullscreen = 1
+# (list) features (adds uses-feature -tags to manifest)
+android.features = android.hardware.camera,android.hardware.location
 
-# (list) Java classes to add
-#android.add_jars =
+# (int) API to use
+android.api = 30
 
-# (str) Android entry point, default is main.py
-#android.entrypoint = org.kivy.android.PythonActivity
+# (str) Android logcat filters to use
+android.logcat_filters = *:S python:D
 
-# (str) Supported orientation on Android
-#android.orientation = portrait
+# (bool) Copy library instead of making a libpymodules.so
+android.copy_libs = 1
 
-# (bool) Android logcat
-log_level = 2
-
-# (bool) Copy assets (optional)
-#android.copy_assets = 1
+# (str) The Android architecture to use (armeabi-v7l, arm64-v8a, x86)
+android.arch = armeabi-v7l
